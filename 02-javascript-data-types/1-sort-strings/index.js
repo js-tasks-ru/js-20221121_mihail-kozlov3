@@ -11,5 +11,5 @@ export function sortStrings(arr, param = 'asc') {
 
   ret.sort((s1, s2) => collator.compare(s1, s2));
 
-  return param == 'asc' ? ret : ret.reverse();
+  return param === 'asc' ? ret : ret.reverse();
 }
