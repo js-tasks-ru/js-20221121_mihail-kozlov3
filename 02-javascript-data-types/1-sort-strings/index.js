@@ -7,7 +7,9 @@
 export function sortStrings(arr, param = 'asc') {
   const ret = [...arr];
   
-  ret.sort((s1, s2) => s1.localeCompare(s2, 'ru-u-kf-upper'));
+  let collator = new Intl.Collator(['ru', 'en-US'], {caseFirst: 'upper'});
+
+  ret.sort((s1, s2) => collator.compare(s1, s2));
 
   return param == 'asc' ? ret : ret.reverse();
 }
