@@ -5,5 +5,9 @@
  * @returns {object} - returns the new object
  */
 export const pick = (obj, ...fields) => {
+  const ret = {};
+  
+  for (const name of fields) {ret[name] = obj[name];}
 
+  return ret;
 };
