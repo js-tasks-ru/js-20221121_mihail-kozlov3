@@ -10,7 +10,7 @@ export default class SortableTable {
   loading = false;
 
   windowScrollHandler = async () => {
-    const {bottom}  = this.subElements.body.getBoundingClientRect();
+    const {bottom} = this.subElements.body.getBoundingClientRect();
     if (!this.loading && document.documentElement.clientHeight > bottom) {
       this.start = this.end;
       this.end = this.start + this.step;
@@ -89,7 +89,8 @@ export default class SortableTable {
       "_order": order,
       "_start": this.start,
       "_end": this.end
-    }
+    };
+
     const sortedData = await this.loadData(sortOptions);
     this.setSortedColumn(sort, order);
     this.subElements.body.innerHTML = this.getBody(sortedData);
@@ -108,7 +109,7 @@ export default class SortableTable {
       column.dataset.order = '';
     });
 
-    const sortedColumn = this.element.querySelector(`.sortable-table__cell[data-id="${sort}"]`)
+    const sortedColumn = this.element.querySelector(`.sortable-table__cell[data-id="${sort}"]`);
     sortedColumn.dataset.order = order;
     sortedColumn.append(this.subElements.arrow);
 
@@ -176,7 +177,7 @@ export default class SortableTable {
         </div>
       </div>
     </div>
-    `
+    `;
   }
 
   getHeader() {
@@ -210,7 +211,7 @@ export default class SortableTable {
       }
     }).join('');
 
-    return `<a href="" class="sortable-table__row">${rowBody}</a>`
+    return `<a href="" class="sortable-table__row">${rowBody}</a>`;
   }
 
   getBody(data = []) {
