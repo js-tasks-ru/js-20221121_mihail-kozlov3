@@ -130,12 +130,10 @@ export default class SortableTable {
 
   getSubElements(element) {
     const result = {};
-    const elements = element.querySelectorAll('[data-element]');
 
-    for (const subElement of elements) {
-      const name = subElement.dataset.element;
-      result[name] = subElement;
-    }
+    this.element.querySelectorAll('[data-element]').forEach(dataElement => {
+      result[dataElement.dataset.element] = dataElement;
+    });
 
     return result;
   }
